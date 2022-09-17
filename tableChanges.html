@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8" />
+
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<title>Input and Table</title>
+<style>
+body{
+    padding:80px 50px;
+}
+#name,#nameBtn,#email,#emailBtn{
+    margin:10px 0px;
+}
+#submitBtn{
+    margin:20px;
+    position:relative;
+    left:80px;
+}
+.tableClass{
+    border:2px solid black;
+    border-collapse:collapse;
+    padding:10px;
+    border-spacing:5px;
+}
+td,th{
+    border:1px solid black;
+    padding:5px;
+}
+
+</style>
+</head>
+<body id="body">
+<big id="name">Name:</big>
+<input id="nameBtn" type="text" placeholder="Enter">
+<br>
+<big id="email">Email:</big>
+<input id="emailBtn" type="Email" placeholder="Enter">
+<br>
+<button id="submitBtn"> Submit </button>
+<table class="tableClass" id="tableid">
+    </table>
+<script>
+let name=document.getElementById("name");
+
+let email=document.getElementById("email");
+let tableVar=document.getElementById("tableid");
+let submitBtn=document.getElementById("submitBtn");
+submitBtn.addEventListener("click",showTable);
+let temp=0;
+function showTable(){
+     let nameEntered=name.nextElementSibling.value;
+    let emailEntered=emailBtn.value;
+    if(temp==0){
+        let newT=document.createElement("tr");
+    newT.classList.add("tableClass");
+    tableVar.appendChild(newT);
+    newT.innerHTML=`<th> Name </th>
+    <th> Email </th>`;
+      let newTable=document.createElement("tr");
+    newTable.classList.add("tableClass");
+    tableVar.appendChild(newTable); 
+        newTable.innerHTML=`
+    <td>${nameEntered} </td>
+    <td>${emailEntered}</td>`;
+    temp=1;
+    }
+    else{
+          let newTable=document.createElement("tr");
+    newTable.classList.add("tableClass");
+    tableVar.appendChild(newTable); 
+        newTable.innerHTML=`
+    <td>${nameEntered} </td>
+    <td>${emailEntered}</td>`;
+    }
+}
+</script>
+</body>
+</html>
